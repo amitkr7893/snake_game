@@ -1,0 +1,193 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: system-ui;
+    user-select: none;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(45deg, rgb(71, 66, 77),rgb(11, 0, 37));
+    background-size: .6rem .6rem;
+}
+#scorediv{
+    height: max-content;
+    padding: 1rem;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#scorebox,#hiscorebox{
+    color: rgb(211, 211, 211);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+#hiscorebox{
+    top:7rem;
+    color: rgb(0, 189, 25);
+}
+#board_cont{
+    height: max-content;
+    width: 100vw;
+    padding: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#board{
+    width: 90vmin;
+    height: 90vmin;
+    display: grid;
+    grid-template-rows: repeat(30,1fr);
+    grid-template-columns: repeat(30,1fr);
+    box-shadow:
+    0 0 20px rgb(199, 0, 0),
+    inset 0 0 10px rgb(199, 0, 0);
+    border: 2px solid rgb(199, 0, 0);
+    background-color: rgb(0, 0, 0);
+}
+#playb_box{
+    height: 10rem;
+    width: 10rem;
+    position: relative;
+    margin-top: 2rem;
+    border-radius: 2rem;
+    background: rgba(65, 65, 65, 0.5);
+}
+.play_btn{
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    padding: 1vmin;
+    background: rgb(204, 207, 0);
+    visibility: visible;
+}
+#start_btn:hover,.play_btn:hover{
+    opacity: .7;
+}
+#btn_up{
+    top: 0%;
+    left: 50%;
+    clip-path: polygon(100% 100%, 0% 100%, 50% 20%);
+    transform: translate(-50%,0%);
+}
+#btn_right{
+    top: 50%;
+    left: 100%;
+    clip-path: polygon(80% 50%, 0% 0%, 0% 100%);
+    transform: translate(-100%,-50%);
+}
+#btn_down{
+    bottom: 0%;
+    left: 50%;
+    clip-path: polygon(50% 80%, 0% 0%, 100% 0%);
+    transform: translate(-50%,0%);
+}
+#btn_left{
+    top: 50%;
+    left: 0%;
+    clip-path: polygon(20% 50%, 100% 0%, 100% 100%);
+    transform: translate(0%,-50%);
+}
+
+#popup_box{
+    position: absolute;
+    height: auto;
+    min-width: 30vmin;
+    text-align: center;
+    top: 30%;
+    left: 50%;
+    text-transform: uppercase;
+    letter-spacing: .6em;
+    font-style: oblique;
+    transform: translate(-50%,-50%);
+    color: rgb(173, 255, 162);
+    transition: .5s;
+    opacity: 0;
+}
+
+#start_btn{
+    position: absolute;
+    min-height: 10vmin;
+    min-width: 50vmin;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    border: 2px solid rgb(204, 207, 0);
+    opacity: 1;
+    transition: .3s;
+}
+.snake{
+    background: radial-gradient(rgb(255, 252, 206) 0%,rgb(196, 218, 0) 50%,rgb(238, 135, 0));
+    border-radius: 50%;
+    transform: scale(.8);
+    box-shadow: 0px 0px 8px rgb(229, 255, 0);
+}
+
+.head{
+    box-shadow: 0px 0px 8px rgb(229, 255, 0);
+    transform: rotate(0deg) scale(.9);
+    background-color: rgb(196, 218, 0);
+    clip-path: polygon(50% 59%, 80% 10%, 100% 37%, 96% 68%, 80% 90%, 50% 100%, 20% 90%, 5% 69%, 0 38%, 20% 10%);
+}
+.down{
+    transform: rotate(180deg) scale(.9);
+}
+.left{
+    transform: rotate(-90deg) scale(.9);
+}
+.right{
+    transform: rotate(90deg) scale(.9);
+}
+.food{
+    background-color: rgb(196, 218, 0);
+    border-radius: 50%;
+    box-shadow: 0px 0px 25px 8px rgb(196, 218, 0);
+    transform: scale(.4);
+}
+
+
+@media (min-width:768px) and (max-width:1023px) {
+    #board_cont{
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #popup_box{
+        top: 30%;
+        left: 32%;
+        transform: translate(-50%,-50%);
+    }
+    #start_btn{
+        top: 50%;
+        left: 32%;
+        transform: translate(-50%,-50%);
+    }
+    #board{
+        width: 70vmin;
+        height: 70vmin;
+    }
+}
+@media (min-width:1024px){
+    #playb_box{
+        display: none;
+    }
+    #scorediv{
+        width: max-content;
+        flex-direction: column;
+        position: absolute;
+        top: 2rem;
+        font-size: 1.4rem;
+        left: 4rem;
+        padding: 2%;
+    }
+}
