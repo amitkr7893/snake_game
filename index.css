@@ -8,7 +8,7 @@
 body{
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(45deg, rgb(71, 66, 77),rgb(11, 0, 37));
+    background: linear-gradient(45deg, rgb(114, 105, 124),rgb(11, 0, 37));
     background-size: .6rem .6rem;
 }
 #scorediv{
