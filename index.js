@@ -25,10 +25,11 @@ function speedup() {
         speed += 1;
         speedsound.play();
         if(speed == 10){
-            document.getElementById("popup_box").innerText = "yeah! MAX LEVEL";
+            document.getElementById("popup_box").innerText = "YEAH! MAX LEVEL";
             document.getElementById("popup_box").style.opacity = "1";
         }
         else{    
+            document.getElementById("popup_box").innerText = "LEVEL UP";
             document.getElementById("popup_box").style.opacity = "1";
         }
         setTimeout(() => {

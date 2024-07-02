@@ -1,21 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
-    font-family: system-ui;
+    font-family: Roboto;
     user-select: none;
 }
 body{
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(45deg, rgb(114, 105, 124),rgb(11, 0, 37));
-    background-size: .6rem .6rem;
+    /* background: linear-gradient(45deg, rgb(69, 14, 39),rgb(11, 0, 37)); */
+    /* background-size: .6rem .6rem;
+     */
+     background: black;
 }
 #scorediv{
+    position: relative;
+    top: 2%;
+    /* left: 50%; */
     height: max-content;
     padding: 1rem;
     width: 100vw;
+    /* width: max-content; */
     display: flex;
+    /* flex-direction: column; */
+    transform: translate(0%,0%);
     justify-content: space-evenly;
     align-items: center;
 }
@@ -44,8 +53,8 @@ body{
     grid-template-rows: repeat(30,1fr);
     grid-template-columns: repeat(30,1fr);
     box-shadow:
-    0 0 20px rgb(199, 0, 0),
-    inset 0 0 10px rgb(199, 0, 0);
+    0 0 6px rgb(199, 0, 0),
+    inset 0 0 6px rgb(199, 0, 0);
     border: 2px solid rgb(199, 0, 0);
     background-color: rgb(0, 0, 0);
 }
@@ -65,6 +74,7 @@ body{
     padding: 1vmin;
     background: rgb(204, 207, 0);
     visibility: visible;
+    z-index: 10;
 }
 #start_btn:hover,.play_btn:hover{
     opacity: .7;
@@ -103,10 +113,10 @@ body{
     left: 50%;
     text-transform: uppercase;
     letter-spacing: .6em;
-    font-style: oblique;
+    /* font-style: oblique; */
     transform: translate(-50%,-50%);
-    color: rgb(173, 255, 162);
-    transition: .5s;
+    color: rgb(25, 213, 0);
+    transition: .4s;
     opacity: 0;
 }
 
@@ -119,11 +129,15 @@ body{
     left: 50%;
     transform: translate(-50%,-50%);
     text-transform: uppercase;
-    font-size: 1rem;
+    /* font-size: 1rem;
+     */
     color: rgb(255, 255, 255);
-    background: transparent;
-    border: 2px solid rgb(204, 207, 0);
+    background: rgb(53, 173, 20);
+    font-size: 1.2rem;
+
+    /* border: 2px solid rgb(0, 0, 0); */
     opacity: 1;
+    z-index: 10;
     transition: .3s;
 }
 .snake{
@@ -176,6 +190,11 @@ body{
         width: 70vmin;
         height: 70vmin;
     }
+    #scorediv{
+        left: -18%;
+        /* left: 50%; */
+        /* transform: translateX(-100%); */
+    }
 }
 @media (min-width:1024px){
     #playb_box{
@@ -185,9 +204,10 @@ body{
         width: max-content;
         flex-direction: column;
         position: absolute;
-        top: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
         font-size: 1.4rem;
-        left: 4rem;
+        left: 2rem;
         padding: 2%;
     }
 }
