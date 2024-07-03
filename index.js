@@ -5,7 +5,7 @@ let collide = false;
 var myspeed;
 let speed = 3;
 let score = 0;
-let snakeArr = [{ x: 13, y: 22 }];
+let snakeArr = [{ x: 13, y: 22 },{ x: 14, y: 22 },{ x: 15, y: 22 },{ x: 16, y: 22 }];
 let food = { x: 7, y: 10 };
 
 const eat = new Audio("./sound/eat.wav");
@@ -18,11 +18,28 @@ click.playbackRate = 3;
 speedsound.playbackRate = .5;
 startclick.playbackRate = 2;
 
+// changing color of food
+
+const cl = ["#daae00","#c1da00","#28da00","#00dada","#0062da","#ae00da","#da005b"];
+
+let i = Math.floor(Math.random()* (6 -0 +1) - 0);
+let j=i;
+document.documentElement.style.setProperty("--food_color", cl[i]);
+
+function change_color(){
+    i = Math.floor(Math.random()* (6 -0 +1) - 0);
+
+    document.documentElement.style.setProperty("--food_color", cl[i]);
+    document.documentElement.style.setProperty("--body_color", cl[j]);
+    j=i;
+}
+
 
 // Game functions// 
 function speedup() {
     if (speed < 10) {
         speed += 1;
+        bgmusic.playbackRate +=.05;
         speedsound.play();
         if(speed == 10){
             document.getElementById("popup_box").innerText = "YEAH! MAX LEVEL";
@@ -69,6 +86,7 @@ function gameEngine() {
         let a = 1;
         let b = 30;
         eat.play();
+        change_color();
         for (let i = 0; i < snakeArr.length; i++) {
             let foodx = Math.round(a + (b - a) * Math.random());
             let foody = Math.round(a + (b - a) * Math.random());
@@ -99,6 +117,7 @@ function gameEngine() {
     if (isCollide(snakeArr)) {
         collide = true;
         hit.play();
+
         bgmusic.pause();
         clearInterval(myspeed);
         inputDir = { x: 0, y: 0 };
@@ -109,7 +128,8 @@ function gameEngine() {
             document.getElementById("start_btn").style.display = "";
         }, 400);
         speed = 3;
-        snakeArr = [{ x: 13, y: 22 }];
+        snakeArr = [{ x: 13, y: 22 },{ x: 14, y: 22 },{ x: 15, y: 22 },{ x: 16, y: 22 }];
+
         return;
     }
 
@@ -156,12 +176,17 @@ function gameEngine() {
 // window.requestAnimationFrame(main);
 
 function start() {
+    bgmusic.currentTime = 0;
+    bgmusic.playbackRate = 1;
+    bgmusic.loop = true;
+    bgmusic.play();
+    
     collide = false;
 
     startclick.play();
-
     score = 0;
     scorebox.innerHTML = "score = " + score;
+    document.documentElement.style.setProperty("--body_color", "white");
 
     myspeed = setInterval(speedup, 20000);
 

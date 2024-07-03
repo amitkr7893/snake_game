@@ -6,6 +6,10 @@
     font-family: Roboto;
     user-select: none;
 }
+:root{
+    --food_color : #daae00;
+    --body_color : #ffffff;
+}
 body{
     height: 100vh;
     width: 100vw;
@@ -141,31 +145,35 @@ body{
     transition: .3s;
 }
 .snake{
-    background: radial-gradient(rgb(255, 252, 206) 0%,rgb(196, 218, 0) 50%,rgb(238, 135, 0));
+    /* background: radial-gradient(rgb(255, 252, 206) 0%,rgb(196, 218, 0) 50%,rgb(238, 135, 0)); */
+    background: var(--body_color);
     border-radius: 50%;
-    transform: scale(.8);
-    box-shadow: 0px 0px 8px rgb(229, 255, 0);
+    /* transform: scale(); */
+    /* box-shadow: 0px 0px 8px rgb(229, 255, 0); */
 }
 
 .head{
-    box-shadow: 0px 0px 8px rgb(229, 255, 0);
-    transform: rotate(0deg) scale(.9);
-    background-color: rgb(196, 218, 0);
+    /* box-shadow: 0px 0px 8px rgb(229, 255, 0); */
+    /* border-top: .7rem solid rgb(168, 0, 0); */
+    transform: rotate(0deg) scale(1);
+    background: var(--body_color);
     clip-path: polygon(50% 59%, 80% 10%, 100% 37%, 96% 68%, 80% 90%, 50% 100%, 20% 90%, 5% 69%, 0 38%, 20% 10%);
 }
 .down{
-    transform: rotate(180deg) scale(.9);
+    transform: rotate(180deg);
 }
 .left{
-    transform: rotate(-90deg) scale(.9);
+    transform: rotate(-90deg);
 }
 .right{
-    transform: rotate(90deg) scale(.9);
+    transform: rotate(90deg);
 }
+
+
 .food{
-    background-color: rgb(196, 218, 0);
+    background-color: var(--food_color);
     border-radius: 50%;
-    box-shadow: 0px 0px 25px 8px rgb(196, 218, 0);
+    box-shadow: 0px 0px 4px 6px var(--food_color);
     transform: scale(.4);
 }
 
