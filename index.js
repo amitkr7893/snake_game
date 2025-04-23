@@ -34,7 +34,6 @@ function change_color(){
     j=i;
 }
 
-
 // Game functions// 
 function speedup() {
     if (speed < 10) {
